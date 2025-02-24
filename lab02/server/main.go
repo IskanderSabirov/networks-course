@@ -43,8 +43,10 @@ func main() {
 
 	r.GET("/products", getProducts)
 	r.GET("/products/:id", getProductByID)
+	r.GET("/products/:id/image", getProductImage)
 	r.POST("/products", createProduct)
 	r.PUT("/products/:id", updateProduct)
+	r.PUT("/products/:id/image", updateProductImageByID)
 	r.DELETE("/products/:id", deleteProduct)
 
 	err := r.Run(":8080")
@@ -56,6 +58,55 @@ func main() {
 
 func getProducts(c *gin.Context) {
 	c.JSON(http.StatusOK, products)
+}
+
+func updateProductImageByID(c *gin.Context) {
+	id := c.Param("id")
+	file, _ := c.FormFile("image")
+	var imagePath string
+	if file != nil {
+		imagePath = filepath.Join("uploads", uuid.New().String()+filepath.Ext(file.Filename))
+
+		if err := os.MkdirAll("uploads", os.ModePerm); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to create upload directory"})
+			return
+		}
+
+		if err := c.SaveUploadedFile(file, imagePath); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to save image"})
+			return
+		}
+	} else {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Can`t extract image"})
+	}
+
+	for i, product := range products {
+		if product.ID == id {
+			products[i].Image = imagePath
+			c.JSON(http.StatusOK, gin.H{"product": product})
+			return
+		}
+	}
+
+	c.JSON(http.StatusNotFound, gin.H{"error": "Product not found"})
+}
+
+func getProductImage(c *gin.Context) {
+	id := c.Param("id")
+
+	for _, product := range products {
+		if product.ID == id {
+			if product.Image != "" {
+				c.File(product.Image)
+				return
+			} else {
+				c.JSON(http.StatusNotFound, gin.H{"message": "Image not found"})
+				return
+			}
+		}
+	}
+
+	c.JSON(http.StatusNotFound, gin.H{"message": "Product not found"})
 }
 
 func getProductByID(c *gin.Context) {
