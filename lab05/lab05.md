@@ -110,16 +110,16 @@ $3 + 2$ для начального объекта и $10*(3 + 2)$ для пос
 #### Решение
 1. $N = 10$ Время для клиент-сервера будет по формуле равняться
 $\max\left(\dfrac{10 \cdot 15 \cdot 10^9}{30 \cdot 10^6}, \dfrac{15 \cdot 10^9}{2 \cdot 10^6}\right)$ =
-$\max\left( 5 \cdot 10^3, 7.5 \cdot 10^3 \right) = 7.5 \cdot 10^3 $.
+$\max\left( 5 \cdot 10^3, 7.5 \cdot 10^3 \right)$ = 7500.
 Для одноранговой $\max\left(\dfrac{15\cdot 10^9}{30\cdot10^6}, \dfrac{15\cdot10^9}{2\cdot10^6}, \dfrac{10 \cdot 15 \cdot 10^9}{30 \cdot 10^6 + 10 \cdot 300 \cdot 10^3}\right)$ =
 $\max\left(0.5 \cdot 10^3, 7.5 \cdot 10^3, 4.5 \cdot 10^3\right)$ = 7500.
 
 2. $N = 100$ Время для клиент-сервера будет по формуле равняться
 $\max\left( \dfrac{100 \cdot 15 \cdot 10^9}{30 \cdot 10^6}, \dfrac{15\cdot10^9}{2\cdot10^6}\right)$ =
-$\max\left( 50 \cdot 10^3, 7.5 \cdot 10^3\right)$ = 50000
+$\max\left( 50 \cdot 10^3, 7.5 \cdot 10^3\right)$ = 50000.
 
 Для одноранговой $\max\left(\dfrac{15\cdot10^9}{30\cdot10^6}, \dfrac{15\cdot10^9}{2\cdot10^6}, \dfrac{100 \cdot 15 \cdot 10^9}{30 \cdot 10^6 + 100 \cdot 700 \cdot 10^3}\right)$ =
-$\max\left(0.5 \cdot 10^3, 7.5 \cdot 10^3, 15 \cdot 10^3\right)$ = $15 \cdot 10^3 $ .
+$\max\left(0.5 \cdot 10^3, 7.5 \cdot 10^3, 15 \cdot 10^3\right)$ = 15000.
 
 3. $N = 1000$ Время для клиент-сервера будет по формуле равняться
 $\max\left(\dfrac{1000 \cdot 15 \cdot 10^9}{30 \cdot 10^6}, \dfrac{15 \cdot 10^9}{2 \cdot 10^6} \right)$ =
