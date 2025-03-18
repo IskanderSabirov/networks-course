@@ -125,7 +125,7 @@ $\max\left(0.5 \cdot 10^3, 7.5 \cdot 10^3, 15 \cdot 10^3\right)$ = 15000.
 $\max\left(\dfrac{1000 \cdot 15 \cdot 10^9}{30 \cdot 10^6}, \dfrac{15 \cdot 10^9}{2 \cdot 10^6} \right)$ =
 $\max\left(500 \cdot 10^3, 7.5 \cdot 10^3\right)$ = 500000.
 Для одноранговой
-$\max\left(\dfrac{15\cdot10^9}{30\cdot10^6}, \dfrac{15\cdot10^9}{2\cdot10^6}, \dfrac{1000 \cdot 15 \cdot 10^9}{30 \cdot 10^6 + 10 \cdot 2 \cdot 10^6}\right)$ =
+$\max\left(\dfrac{15\cdot10^9}{30\cdot10^6}, \dfrac{15\cdot10^9}{2\cdot10^6}, \dfrac{1000 \cdot 15 \cdot 10^9}{30 \cdot 10^6 + 1000 \cdot 2 \cdot 10^6}\right)$ =
 $\max\left(0.5 \cdot 10^3, 7.5 \cdot 10^3, 7.5 \cdot 10^3\right)$ =  7500.
 
 
