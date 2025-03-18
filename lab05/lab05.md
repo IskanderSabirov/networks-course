@@ -115,7 +115,10 @@ $\max\left( 5 \cdot 10^3, 7.5 \cdot 10^3 \right) = 7.5 \cdot 10^3 $.
 $\max\left(0.5 \cdot 10^3, 7.5 \cdot 10^3, .,5 \cdot 10^3\right)$ = $7.5 \cdot 10^3 $ .
 
 2. $N = 100$ Время для клиент-сервера будет по формулу равняться
-$ \max\left(\dfrac{100 \cdot 15 \cdot 10^9}{30 \cdot 10^6}, \dfrac{15\cdot10^9}{2\cdot10^6}\right)$ = $\max(50 \cdot 10^3, 7.5 \cdot 10^3) = 50 \cdot 10^3 $ .
+$
+\max\left(\dfrac{100 \cdot 15 \cdot 10^9}{30 \cdot 10^6}, \dfrac{15\cdot10^9}{2\cdot10^6}\right) = \max(50 \cdot 10^3, 7.5 \cdot 10^3) = 50 \cdot 10^3
+$
+
 Для одноранговой $\max\left(\dfrac{15\cdot10^9}{30\cdot10^6}, \dfrac{15\cdot10^9}{2\cdot10^6}, \dfrac{100 \cdot 15 \cdot 10^9}{30 \cdot 10^6 + 100 \cdot 700 \cdot 10^3}\right)$ =
 $\max\left(0.5 \cdot 10^3, 7.5 \cdot 10^3, 15 \cdot 10^3\right)$ = $15 \cdot 10^3 $ .
 
