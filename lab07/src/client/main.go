@@ -119,9 +119,9 @@ func runPing(isEcho bool) {
 			rtts = append(rtts, rtt)
 			fmt.Printf("Ping %d: Response time: %dms seconds, Response: [%s]\n", i, rtt, string(buf[:n]))
 		}
-	}
 
-	showStats(rtts, lostPackets, packetsCnt)
+		showStats(rtts, lostPackets, i)
+	}
 }
 
 func runHeartbeat(clients int) {
