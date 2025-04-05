@@ -111,11 +111,13 @@ func runPing(isEcho bool) {
 
 		buf := make([]byte, bufferSize)
 		n, err := conn.Read(buf)
-		if errors.Is(err, os.ErrDeadlineExceeded) {
-			lostPackets++
-			fmt.Printf("Ping %d: Request timed out\n", i)
-		} else if err != nil {
-			log.Printf("Error reading from server: %s\n", err)
+		if err != nil {
+			if errors.Is(err, os.ErrDeadlineExceeded) {
+				lostPackets++
+				fmt.Printf("Ping %d: Request timed out\n", i)
+			} else {
+				log.Printf("Error reading from server: %s\n", err)
+			}
 		} else {
 			rtt := time.Since(start).Microseconds()
 			rtts = append(rtts, rtt)
